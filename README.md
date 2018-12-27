@@ -12,22 +12,22 @@ Example of use.
     //strip url = make_strip( argv[1] );
     /* or std::string */
     string url = _T( R"(https://github.com/ppp-it/regex_match)" );// argv[1];
-	
+    
     string host, object;
-	strip hst, obj;
-	auto rgx = regex{ _T( R"(([a-z][a-z0-9+\-.]*)://([a-z0-9\-._~%]+|\[[a-f0-9:.]+\]|\[v[a-f0-9][a-z0-9\-._~%!$&'()*+,;=:]+\])/(.*$))" ) };  // паттерн на парсинг url
+    strip hst, obj;
+    auto rgx = regex{ _T( R"(([a-z][a-z0-9+\-.]*)://([a-z0-9\-._~%]+|\[[a-f0-9:.]+\]|\[v[a-f0-9][a-z0-9\-._~%!$&'()*+,;=:]+\])/(.*$))" ) };  // паттерн на парсинг url
 
-	/* из строки - url, по паттерну - rgx получим:
-	 * имя хоста в переменную - hst
-	 * имя объекта в переменную - obj */
-	match( url, rgx, hst, obj );
-	_tprintf( _T( "'%.*s' '%.*s'\n" ),
-			  size( hst ), begin( hst ),
-			  size( obj ), begin( obj ) 
-	);  //  'github.com' 'ppp-it/regex_match'
-	
-	host = to_string( hst );
-	object = to_string( obj );
+    /* из строки - url, по паттерну - rgx получим:
+     * имя хоста в переменную - hst
+     * имя объекта в переменную - obj */
+    match( url, rgx, hst, obj );
+    _tprintf( _T( "'%.*s' '%.*s'\n" ),
+              size( hst ), begin( hst ),
+              size( obj ), begin( obj ) 
+    );  //  'github.com' 'ppp-it/regex_match'
+    
+    host = to_string( hst );
+    object = to_string( obj );
 
 
     //---------------------------------------------------------------------------------------------
@@ -60,4 +60,4 @@ Example of use.
     }
     //---------------------------------------------------------------------------------------------
 
- ```  
+ ``` 
