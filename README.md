@@ -1,4 +1,4 @@
-MATCH REGEX
+REGEX MATCH
 ===========
 
 getting matches from one row to individual variables  
@@ -11,7 +11,7 @@ Example of use.
     /* use strip */
     //strip url = make_strip( argv[1] );
     /* or std::string */
-    string url = _T( R"(https://github.com/ppp-it/match_regex)" );// argv[1];
+    string url = _T( R"(https://github.com/ppp-it/regex_match)" );// argv[1];
 	
     string host, object;
 	strip hst, obj;
@@ -24,20 +24,20 @@ Example of use.
 	_tprintf( _T( "'%.*s' '%.*s'\n" ),
 			  size( hst ), begin( hst ),
 			  size( obj ), begin( obj ) 
-	);  //  'github.com' 'ppp-it/match_regex'
+	);  //  'github.com' 'ppp-it/regex_match'
 	
 	host = to_string( hst );
 	object = to_string( obj );
 
 
     //---------------------------------------------------------------------------------------------
-    string param_list = _T( R"(--url=<https://github.com> --header=<match_regex> --DestAddress=<teshcha@zhizni.net> --MessageTitle=<unpak match regex> --MessageText=<download here: https://github.com/ppp-it/match_regex>)" );
+    string param_list = _T( R"(--url=<https://github.com> --header=<regex_match> --DestAddress=<teshcha@zhizni.net> --MessageTitle=<unpak match regex> --MessageText=<download here: https://github.com/ppp-it/regex_match>)" );
     auto const s = make_strip( param_list.c_str() );
     auto const r = regex{ _T( R"(\-\-(.*?)=\<(.*?)\>)" ) };  // паттерн на парсинг ключа и значения
 
     std::unordered_map<string, string> param_map;
 
-    for ( 	auto const & m : for_each( s, r ) )
+    for ( auto const & m : for_each( s, r ) )
     {
         strip key, value;
         unpack( m, key, value );
@@ -52,10 +52,10 @@ Example of use.
                   size( value ), begin( value ) 
         );  /*
             'url' 'https://github.com'
-            'header' 'match_regex'
+            'header' 'regex_match'
             'DestAddress' 'teshcha@zhizni.net'
-            'MessageTitle' 'unpak match regex'
-            'MessageText' 'download here: https://github.com/ppp-it/match_regex'
+            'MessageTitle' 'unpak regex match'
+            'MessageText' 'download here: https://github.com/ppp-it/regex_match'
             */
     }
     //---------------------------------------------------------------------------------------------
