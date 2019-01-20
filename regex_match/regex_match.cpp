@@ -82,10 +82,7 @@ int _tmain( int argc, TCHAR* argv[] )
         strip key, value;
         unpack( m, key, value );
 
-        param_map.emplace( std::piecewise_construct,
-                           std::forward_as_tuple( to_string( key ) ),
-                           std::forward_as_tuple( to_string( value ) )
-        );
+        param_map.emplace( to_string( key ), to_string( value ) );
 
         _tprintf( _T( "'%.*s' '%.*s'\n" ),
             (int)size( key ), begin( key ),
