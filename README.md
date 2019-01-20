@@ -42,7 +42,7 @@ Example of use.
         strip key, value;
         unpack( m, key, value );
 
-        param_map.emplace( to_string( key ) ), to_string( value ) );
+        param_map.emplace( to_string( key ), to_string( value ) );
 
         _tprintf( _T( "'%.*s' '%.*s'\n" ),
                   size( key ), begin( key ),
